@@ -1,0 +1,14 @@
+<h1>Phonebook Contacts</h1>
+
+<%= link_to 'New Contact', new_contact_path, class: 'new-contact-link' %>
+
+
+<ul class="contacts-list">
+  <% @contacts.each do |contact| %>
+    <li>
+      <span class="contact-name"><%= contact.name %></span> - <%= contact.phone_number %>
+      <%= link_to 'Edit', edit_contact_path(contact), class: 'edit-link' %>
+      <%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-link' %>
+    </li>
+  <% end %>
+</ul>
